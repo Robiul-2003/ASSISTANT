@@ -35,7 +35,7 @@
         width:160px;
         height:190px;
     }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 366px) {
     
 
     .imeg {
@@ -92,8 +92,16 @@
 <header>                        
  <div class="name">
     <h1>Robiul</h1>
-   <input type="text" name="" id="find" placeholder="search here" onkeyup="search()">
-   </div>
+  
+  <label for="username"></label>
+  <input type="text" id="username" name="username" placeholder="Enter your name">
+</div>
+
+
+
+
+
+   
    <div class="solider">
 
    </div>
@@ -144,6 +152,23 @@
 </main>
 
 
+<script type="text/javascript">
+  function search() {
+    let filter = document.getElementById('find').value.toUpperCase();
+    let items = document.querySelectorAll('.product');
 
+    for (let i = 0; i < items.length; i++) {
+      // h2 বা h3 — যেটাই থাকুক না কেন
+      let title = items[i].querySelector('h2, h3');
+      let value = title?.innerText || "";
+
+      if (value.toUpperCase().includes(filter)) {
+        items[i].style.display = "";
+      } else {
+        items[i].style.display = "none";
+      }
+    }
+  }
+</script>
 </body>
 </html>
